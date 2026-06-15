@@ -1,0 +1,35 @@
+public class Sometree {
+    static class Node {
+        int data;
+        Node left, right;
+
+        Node(int data) {
+            this.data = data;
+        }
+    }
+
+    public static boolean isSameTree(Node p, Node q) {
+        if (p == null && q == null) {
+            return true;
+        }
+        if (p == null || q == null) {
+            return false;
+        }
+        return (p.data == q.data) &&
+               isSameTree(p.left, q.left) &&
+               isSameTree(p.right, q.right);
+    }
+
+    public static void main(String[] args) {
+        Node tree1 = new Node(1);
+        tree1.left = new Node(2);
+        tree1.right = new Node(3);
+
+        Node tree2 = new Node(1);
+        tree2.left = new Node(2);
+        tree2.right = new Node(3);
+
+        System.out.println(isSameTree(tree1, tree2)); 
+    }
+}
+ 
